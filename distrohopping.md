@@ -109,7 +109,7 @@ Add Docker’s official GPG key
 
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-Add repositories
+Add repository
 
     echo \
     "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
@@ -134,13 +134,17 @@ Post-install
 #### [Docker Compose](https://docs.docker.com/compose/install/)
 Download latest
 
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 Add execution permission
 
     sudo chmod +x /usr/local/bin/docker-compose
 #### [Robo3T](https://github.com/Studio3T/robomongo)
+**TLDR** (inside repo directory):
 
+    ./scripts/install-robo3t.sh
+
+Or manual
 Download latest linux release
 
     curl -s https://api.github.com/repos/Studio3T/robomongo/releases/latest \
@@ -160,8 +164,6 @@ Create desktop shortcut
 
     cp ./assets/robo3t.desktop ~/.local/share/applications && \
     sudo cp ./assets/robo3t.png /opt/robo3t/bin
-
-**TODO**: unpack, set QT scale and move to /opt
 
 #### [JetBrains Toolbox](https://www.jetbrains.com/ru-ru/toolbox-app/)
 
