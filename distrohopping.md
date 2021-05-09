@@ -12,13 +12,14 @@
 
     sudo apt install zsh
 
-#### Oh-my-zsh
+#### [Oh-my-zsh](https://ohmyz.sh/)
 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 #### Themes
 
-##### powerlevel10k
+##### [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
 
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
@@ -26,9 +27,7 @@ Set `ZSH_THEME` to // TODO: make script for that
 
     ZSH_THEME="powerlevel10k/powerlevel10k"
 
-
-
-##### nerd fonts
+##### [Nerd fonts](https://www.nerdfonts.com/)
 
     https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip
     https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Mononoki.zip
@@ -38,11 +37,11 @@ Unpack and `cp` into `~/.fonts` // TODO: make script for that
 
 #### Plugins
 
-##### zsh-syntax-highlighting
+##### [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-##### zsh-autosuggestions
+##### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
@@ -52,8 +51,8 @@ Set `~/.zshrc` `plugins` as described // TODO: make script for that
 
 ### DEV
 
-#### .NET
-
+#### [.NET](https://docs.microsoft.com/ru-ru/dotnet/core/install/linux)
+Use one of repos
 Repo 20.04
 
     wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -80,8 +79,9 @@ Prerequisites
 
     sudo apt-get install -y dotnet-sdk-3.1
 
-#### Node.js
+#### [Node.js](https://nodejs.org/en/): [via package manager](https://github.com/nodesource/distributions)
 
+Use one of the following repos
 Node 16 repo
 
     curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -94,11 +94,52 @@ Install
 
     sudo apt-get install -y nodejs
 
-#### Docker
+#### [Docker](https://docs.docker.com/engine/install/ubuntu/)
+Prerequisites
 
-    throw new NotImplementedException();
+    sudo apt-get update && \
+    sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
 
-#### Robo3T
+Add Docker’s official GPG key
+
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+Add repositories
+
+    echo \
+    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+Actual install
+
+    sudo apt update && \
+    sudo apt install docker-ce docker-ce-cli containerd.io
+
+Test
+
+    sudo docker run hello-world
+
+Post-install
+
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker
+    docker run hello-world
+
+#### [Docker Compose](https://docs.docker.com/compose/install/)
+Download latest
+
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+Add execution permission
+
+    sudo chmod +x /usr/local/bin/docker-compose
+#### [Robo3T](https://github.com/Studio3T/robomongo)
 
 Download latest linux release
 
@@ -108,9 +149,21 @@ Download latest linux release
     | tr -d \" \
     | wget -qi -
 
+Unpack
+
+    tar -xzvf robo3t*.tar.gz && \
+    rm robo3t*tar* && \
+    sudo mv robo3t* /opt/robo3t && \
+    sudo chmod +x /opt/robo3t/bin/robo3t
+
+Create desktop shortcut
+
+    cp ./assets/robo3t.desktop ~/.local/share/applications && \
+    sudo cp ./assets/robo3t.png /opt/robo3t/bin
+
 **TODO**: unpack, set QT scale and move to /opt
 
-#### JetBrains
+#### [JetBrains Toolbox](https://www.jetbrains.com/ru-ru/toolbox-app/)
 
 Toolbox (unfortunately no direct link)
 
