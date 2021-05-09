@@ -22,9 +22,11 @@
 
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-Set `ZSH_THEME` to
+Set `ZSH_THEME` to // TODO: make script for that
 
     ZSH_THEME="powerlevel10k/powerlevel10k"
+
+
 
 ##### nerd fonts
 
@@ -32,7 +34,7 @@ Set `ZSH_THEME` to
     https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Mononoki.zip
     https://github.com/ryanoasis/nerd-fonts/releases/latest/download/UbuntuMono.zip
 
-Unpack and `cp` into `~/.fonts`
+Unpack and `cp` into `~/.fonts` // TODO: make script for that
 
 #### Plugins
 
@@ -44,7 +46,7 @@ Unpack and `cp` into `~/.fonts`
 
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-Set `~/.zshrc` `plugins` as described
+Set `~/.zshrc` `plugins` as described // TODO: make script for that
 
     plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
@@ -113,4 +115,3 @@ Download latest linux release
 Toolbox (unfortunately no direct link)
 
     https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=linux
-
