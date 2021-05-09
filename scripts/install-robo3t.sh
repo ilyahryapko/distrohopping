@@ -4,7 +4,7 @@ ASSETS_DIR="$(dirname "$SCRIPT_DIR")"/assets
 
 echo 'Installing prerequisites'
 
-sudo apt install curl wget -y
+sudo apt-get install curl wget -qq > /dev/null
 
 echo 'Robo3t installation'
 echo 'Downloading Robo3t'
