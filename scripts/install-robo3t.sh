@@ -9,8 +9,6 @@ sudo apt install curl wget -y
 echo 'Robo3t installation'
 echo 'Downloading Robo3t'
 
-
-
 curl -s https://api.github.com/repos/Studio3T/robomongo/releases/latest \
 | grep "browser_download_url" \
 | grep "linux" \
