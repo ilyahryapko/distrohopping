@@ -14,13 +14,13 @@ curl -s https://api.github.com/repos/Studio3T/robomongo/releases/latest \
 | grep "linux" \
 | cut -d : -f 2,3 \
 | tr -d \" \
-| wget -qi -
+| wget -O robo3t-latest.tar.gz -qi -
 
 echo 'Download ended'
 echo 'Unpacking and moving to /opt'
 
-tar -xzf robo3t*.tar.gz && \
-rm robo3t*tar* && \
+tar -xzf robo3t-latest.tar.gz && \
+rm robo3t-latest.tar.gz && \
 sudo mv robo3t* /opt/robo3t && \
 sudo chmod +x /opt/robo3t/bin/robo3t
 
