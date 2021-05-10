@@ -1,8 +1,10 @@
 #!/bin/bash
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-ASSETS_DIR="$(dirname "$SCRIPT_DIR")"/assets
 
 echo 'Docker installation'
+echo 'Uninstall old version'
+
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
 echo 'Installing prerequisites'
 
 sudo apt-get update && \
@@ -26,8 +28,8 @@ echo \
 
 echo 'Performing installation'
 
-sudo apt update && \
-    sudo apt install docker-ce docker-ce-cli containerd.io
+sudo apt-get update && \
+    sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 echo 'In order to test run the following command'
 echo 'sudo docker run hello-world'
