@@ -13,7 +13,7 @@ apt-transport-https \
 ca-certificates \
 curl \
 gnupg \
-lsb-release
+lsb-release -y
 
 echo 'Adding official GPG key'
 
@@ -29,7 +29,7 @@ echo \
 echo 'Performing installation'
 
 sudo apt-get update && \
-    sudo apt-get install docker-ce docker-ce-cli containerd.io
+    sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
 echo 'In order to test run the following command'
 echo 'sudo docker run hello-world'
