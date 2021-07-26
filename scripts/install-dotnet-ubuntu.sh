@@ -7,8 +7,8 @@ done
 [[ $deps -ne 1 ]] && echo "Dependencies checked" || { echo -en "\nInstall the above and rerun this script\n";exit 1; }
 
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root"
-   exit 1
+  echo "This script must be run as root"
+  exit 1
 fi
 
 wget https://packages.microsoft.com/config/ubuntu/$(lsb_release -sr)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb

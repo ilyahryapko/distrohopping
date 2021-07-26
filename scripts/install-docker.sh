@@ -1,14 +1,19 @@
 #!/bin/bash
 
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run as root"
+  exit 1
+fi
+
 echo 'Docker installation'
 echo 'Uninstall old version'
 
-sudo apt-get remove docker docker-engine docker.io containerd runc
+apt-get remove docker docker-engine docker.io containerd runc
 
 echo 'Installing prerequisites'
 
-sudo apt-get update && \
-sudo apt-get install \
+apt update && \
+apt install \
 apt-transport-https \
 ca-certificates \
 curl \
@@ -23,20 +28,20 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
 echo 'Adding repository'
 
 echo \
-    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 echo 'Performing installation'
 
-sudo apt-get update && \
-    sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+apt update && \
+apt install docker-ce docker-ce-cli containerd.io -y
 
 echo 'In order to test run the following command'
 echo 'sudo docker run hello-world'
 
 echo 'Post install actions:'
-echo '1) sudo groupadd docker'
-echo '2) sudo usermod -aG docker $USER'
-echo '3) newgrp docker'
-echo '4) docker run hello-world'
+echo 'sudo groupadd docker'
+echo 'sudo usermod -aG docker $USER'
+echo 'newgrp docker'
+echo 'docker run hello-world'
 
