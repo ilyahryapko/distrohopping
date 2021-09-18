@@ -1,6 +1,6 @@
 #!/bin/bash
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-ASSETS_DIR="$(dirname "$SCRIPT_DIR")"/assets
+ASSETS_DIR="$(dirname "$SCRIPT_DIR")"/../assets
 
 echo 'Checking dependencies'
 
@@ -32,5 +32,9 @@ echo 'Creating of desktop shortcut'
 
 cp $ASSETS_DIR/robo3t.desktop ~/.local/share/applications && \
 sudo cp $ASSETS_DIR/robo3t.png /opt/robo3t/bin
+
+echo 'Symlinking'
+
+sudo ln -s /opt/robo3t/bin/robo3t /usr/local/bin/robo3t
 
 echo 'Done!'
